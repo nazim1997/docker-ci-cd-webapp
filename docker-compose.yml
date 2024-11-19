@@ -8,7 +8,11 @@ services:
     container_name: webapp-frontend 
 
   db:
-    image: mysql
-    restart: always
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3306:3306" 
+    container_name: webapp-backend 
     environment:
       MYSQL_ROOT_PASSWORD: example

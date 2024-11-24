@@ -1,8 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Menu</title>
+    <script>
+        // Fetch pizza menu from the Node.js API
+        async function loadPizzaMenu() {
+            const response = await fetch('http://localhost:3000/pizzas');
+            const data = await response.json();
+
+            const table = document.getElementById('pizzaTable');
+            data.forEach(pizza => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${pizza.id}</td>
+                    <td>${pizza.name}</td>
+                    <td>${pizza.description}</td>
+                    <td>${pizza.price}</td>
+                `;
+                table.appendChild(row);
+            });
+        }
+
+        window.onload = loadPizzaMenu;
+    </script>
+</head>
 <body>
-
-<h1>Simple Page</h1>
-
+    <h1>Pizza Menu</h1>
+    <table id="pizzaTable" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Pizza data will be loaded here -->
+        </tbody>
+    </table>
 </body>
 </html>

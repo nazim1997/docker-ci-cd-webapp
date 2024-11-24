@@ -1,7 +1,8 @@
 const mysql = require('mysql2');
+const fs = require('fs');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  host: 'webapp-backend',
   user: 'root',
   password: 'nazim', 
   database: 'pizza_shop',
@@ -20,6 +21,8 @@ connection.connect(err => {
       process.exit(1);
     }
 
+    fs.writeFileSync('./pizzas.json', JSON.stringify(results, null, 2));
+    console.log('Query results saved to pizzas.json');
     console.log('Query Results:', results);
     connection.end();
   });

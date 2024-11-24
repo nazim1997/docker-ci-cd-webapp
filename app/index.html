@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Menu</title>
     <script>
-        // Fetch pizza menu from the Node.js API
         async function loadPizzaMenu() {
-            const response = await fetch('http://localhost:3000/pizzas');
+            const response = await fetch('pizzas.json'); // Fetch the static file
             const data = await response.json();
 
-            const table = document.getElementById('pizzaTable');
+            const tableBody = document.querySelector('#pizzaTable tbody');
             data.forEach(pizza => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
@@ -19,7 +18,7 @@
                     <td>${pizza.description}</td>
                     <td>${pizza.price}</td>
                 `;
-                table.appendChild(row);
+                tableBody.appendChild(row);
             });
         }
 
@@ -38,7 +37,7 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Pizza data will be loaded here -->
+            <!-- Pizza data will be inserted here -->
         </tbody>
     </table>
 </body>

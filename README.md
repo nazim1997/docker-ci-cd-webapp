@@ -4,7 +4,17 @@ This project demonstrates a simple web application using Docker and Docker Compo
 
 ## Project Structure
 
-. ├── README.md # Project documentation ├── app │   ├── db-query.js # Node.js script to query the database │   └── index.html # Frontend HTML for displaying pizza menu ├── database │   └── database.sql # SQL script to initialize the database ├── docker │   └── Dockerfile # Dockerfile for building the frontend container └── docker-compose.yml # Docker Compose configuration file
+.
+├── README.md
+├── app
+│   ├── db-query.js
+│   └── index.html
+├── database
+│   └── database.sql
+├── docker
+│   └── Dockerfile
+├── docker-compose.yml
+└── launch.sh
 
 ## Prerequisites
 
@@ -19,8 +29,20 @@ Ensure you have the following installed:
 Run the following command to start the MySQL database container:
 ```bash
 docker-compose -f docker-compose.yml up db -d
+```
 
 This initializes the database and imports the data defined in database/database.sql.
 
-Step 2: Start the Web Frontend
+### Step 2: Start the Web Frontend
+
+Once the database is ready (approximately 20 seconds), start the frontend service:
+
+```bash
+docker-compose -f docker-compose.yml up web -d
+```
+
+### Access the Application
+Visit http://localhost:3000/ to view the pizza menu.
+Visit http://localhost:3000/pizzas to fetch raw JSON data from the backend.
+
 

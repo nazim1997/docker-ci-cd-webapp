@@ -4,6 +4,7 @@ This project demonstrates a simple web application using Docker and Docker Compo
 
 ## Project Structure
 
+```
 .
 ├── README.md
 ├── app
@@ -15,6 +16,7 @@ This project demonstrates a simple web application using Docker and Docker Compo
 │   └── Dockerfile
 ├── docker-compose.yml
 └── launch.sh
+```
 
 ## Prerequisites
 
@@ -42,7 +44,8 @@ docker-compose -f docker-compose.yml up web -d
 ```
 
 ### Access the Application
-Visit http://localhost:3000/ to view the pizza menu.
-Visit http://localhost:3000/pizzas to fetch raw JSON data from the backend.
+
+- Visit http://localhost:3000/ to view the pizza menu.
+- Visit http://localhost:3000/pizzas to fetch raw JSON data from the backend.
 
 

@@ -1,18 +1,13 @@
--- Create the database
-CREATE DATABASE pizza_shop;
-
--- Use the database
+CREATE DATABASE IF NOT EXISTS pizza_shop;
 USE pizza_shop;
 
--- Create the pizzas table
-CREATE TABLE pizzas (
+CREATE TABLE IF NOT EXISTS pizzas (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    description TEXT,
-    price DECIMAL(5, 2) NOT NULL
+    description TEXT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL
 );
 
--- Insert some sample pizzas
 INSERT INTO pizzas (name, description, price) VALUES
 ('Margherita', 'Classic pizza with tomato sauce, mozzarella, and basil', 8.99),
 ('Pepperoni', 'Pepperoni, tomato sauce, and mozzarella', 10.99),

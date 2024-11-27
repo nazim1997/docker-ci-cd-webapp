@@ -21,7 +21,7 @@ connection.connect(err => {
       process.exit(1);
     }
 
-    fs.writeFileSync('./pizzas.json', JSON.stringify(results, null, 2));
+    fs.writeFileSync('/usr/share/nginx/html/pizzas.json', JSON.stringify(results, null, 2));
     console.log('Query results saved to pizzas.json');
     console.log('Query Results:', results);
     connection.end();

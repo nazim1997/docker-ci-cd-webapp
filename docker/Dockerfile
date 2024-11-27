@@ -12,4 +12,4 @@ COPY app/index.html /usr/share/nginx/html
 
 COPY app/db-query.js /usr/share/nginx/html
 
-# RUN node /usr/share/nginx/html/db-query.js
+CMD ["node", "/usr/share/nginx/html/db-query.js"]  

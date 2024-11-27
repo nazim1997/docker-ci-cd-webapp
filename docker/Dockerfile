@@ -1,15 +1,11 @@
-FROM nginx:latest
+FROM node:16-alpine
 
-RUN apt-get update && apt-get install -y curl
+WORKDIR /usr/src/app
 
-RUN apt-get install -y nodejs
+COPY app/ .
 
-RUN apt-get install -y npm
+RUN npm install express mysql2
 
-RUN cd /usr/share/nginx/html && npm install mysql2
+EXPOSE 3000
 
-COPY app/index.html /usr/share/nginx/html
-
-COPY app/db-query.js /usr/share/nginx/html
-
-CMD ["node", "/usr/share/nginx/html/db-query.js"]  
+CMD ["node", "db-query.js"]
